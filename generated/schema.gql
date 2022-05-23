@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Tweet {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  tweets: [Tweet!]!
+  tweet(id: Int!): Tweet!
+}
+
+type Mutation {
+  createTweet(createTweetInput: CreateTweetInput!): Tweet!
+  updateTweet(updateTweetInput: UpdateTweetInput!): Tweet!
+  removeTweet(id: Int!): Tweet!
+}
+
+input CreateTweetInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateTweetInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
