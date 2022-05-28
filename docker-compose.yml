@@ -1,14 +1,14 @@
-version: '3.8'
+version: "3.9"
 services:
   postgres:
-    image: postgres:10.3
-    restart: always
+    image: postgres
     environment:
-      - POSTGRES_USER=test-user
-      - POSTGRES_PASSWORD=test-password
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    ports:
+      POSTGRES_USER: nest-twitter
+      POSTGRES_PASSWORD: password
+    ports: 
       - '5432:5432'
+    volumes:
+      - nest-twitter-db:/var/lib/postgresql/data
+
 volumes:
-  postgres:
+  nest-twitter-db:
