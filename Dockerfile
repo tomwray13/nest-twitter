@@ -1,5 +1,9 @@
 # Base image
-FROM node:18-alpine As development
+FROM node:18-slim As development
+
+# Install open ssl
+RUN apt-get update
+RUN apt-get install -y openssl
 
 # Create app directory
 WORKDIR /usr/src/app
