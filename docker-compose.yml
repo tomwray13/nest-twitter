@@ -22,6 +22,7 @@ services:
     image: postgres
     restart: always
     environment:
+      POSTGRES_NAME: nest-twitter-db
       POSTGRES_USER: nest-twitter
       POSTGRES_PASSWORD: password
     ports: 
