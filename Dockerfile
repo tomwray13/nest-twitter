@@ -19,6 +19,9 @@ COPY . .
 # Creates a "dist" folder with the production build
 RUN npm run build
 
+# Generate prisma client
+RUN npm run prisma:generate
+
 # Base image for production
 FROM node:18-alpine As production
 
