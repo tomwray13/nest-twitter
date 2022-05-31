@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 # A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
 # Copying this first prevents re-running npm install on every code change.
 COPY package*.json ./
+COPY /prisma ./prisma/
 
 # Install app dependencies
 RUN npm install
@@ -41,6 +42,7 @@ COPY . .
 
 # Copy the bundled code
 COPY --from=development /usr/src/app/dist ./dist
+COPY --from=development /usr/src/app/prisma ./prisma
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
