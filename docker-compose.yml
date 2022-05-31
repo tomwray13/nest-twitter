@@ -20,6 +20,7 @@ services:
       - 3000:3000
   postgres:
     image: postgres
+    restart: always
     environment:
       POSTGRES_USER: nest-twitter
       POSTGRES_PASSWORD: password
