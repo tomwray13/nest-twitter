@@ -29,13 +29,13 @@ FROM node:18-alpine As production
 # Set NODE_ENV environment variable
 ENV NODE_ENV production
 
-# Copy the bundled code
-COPY --from=development /usr/src/app/node_modules ./node_modules
-COPY --from=development /usr/src/app/package*.json ./
-COPY --from=development /usr/src/app/dist ./dist
+COPY package*.json ./
+COPY /prisma ./prisma/
 
-# Clean dev packages
-RUN npm prune --production
+RUN npm ci --only=production
+
+# Copy the bundled code to the production image
+COPY --from=development /usr/src/app/dist ./dist
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
