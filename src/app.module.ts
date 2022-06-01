@@ -3,8 +3,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { TweetsModule } from './tweets/tweets.module';
-import { PrismaService } from './services/prisma/prisma.service';
+import { PrismaModule } from './services/prisma/prisma.module';
+import { TweetsModule } from './modules/tweets/tweets.module';
 
 @Module({
   imports: [
@@ -12,9 +12,10 @@ import { PrismaService } from './services/prisma/prisma.service';
       driver: ApolloDriver,
       autoSchemaFile: 'generated/schema.gql',
     }),
+    PrismaModule,
     TweetsModule,
   ],
   controllers: [AppController],
-  providers: [AppService, PrismaService],
+  providers: [AppService],
 })
 export class AppModule {}
