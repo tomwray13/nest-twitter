@@ -16,6 +16,8 @@ services:
       - postgres
     env_file:
     - .env
+    environment:
+    - DATABASE_URL=postgresql://nest-twitter:password@postgres:5432/nest-twitter-db?schema=public
     ports:
       - 3000:3000
   postgres:
