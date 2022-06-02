@@ -1,5 +1,5 @@
 # Base image
-FROM node:18-slim As development
+FROM node:18 As development
 
 # Install open ssl
 RUN apt-get update
