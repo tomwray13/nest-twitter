@@ -17,16 +17,16 @@ services:
     env_file:
     - .env
     environment:
-    - DATABASE_URL=postgresql://nest-twitter:password@postgres:5432/nest-twitter-db?schema=public
+    - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_NAME}?schema=public
     ports:
       - 3000:3000
   postgres:
     image: postgres
     restart: always
     environment:
-      POSTGRES_NAME: nest-twitter-db
-      POSTGRES_USER: nest-twitter
-      POSTGRES_PASSWORD: password
+      POSTGRES_NAME: ${POSTGRES_NAME}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports: 
       - '5432:5432'
     volumes:
